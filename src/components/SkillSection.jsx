@@ -10,11 +10,11 @@ import redux from "../assets/skill/redux.png";
 import webpack from "../assets/skill/webpack.png";
 import npm from "../assets/skill/npm.png";
 import yarn from "../assets/skill/yarn.png";
-import vscode from "../assets/skill/vscode.png";
+import vscode from "../assets/skill/vsCode.png";
 import git from "../assets/skill/git.png";
 import bitbucket from "../assets/skill/bitbucket.png";
 import claude from "../assets/skill/claude.png";
-import cursor from "../assets/skill/Cursor.png";
+import cursor from "../assets/skill/cursor.png";
 
 const SkillSection = () => {
   const skillsData = [
