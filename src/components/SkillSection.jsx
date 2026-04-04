@@ -5,6 +5,7 @@ import html from "../assets/skill/html.png";
 import js from "../assets/skill/js.png";
 import typescript from "../assets/skill/typescript.png";
 import react from "../assets/skill/react.png";
+import next from "../assets/skill/nextjs.png";
 import mui from "../assets/skill/mui.png";
 import redux from "../assets/skill/redux.png";
 import webpack from "../assets/skill/webpack.png";
@@ -29,27 +30,32 @@ const SkillSection = () => {
         {
           name: "CSS3",
           icon: css,
-          level: 95,
-        },
-        {
-          name: "JavaScript",
-          icon: js,
-          level: 95,
-        },
-        {
-          name: "TypeScript",
-          icon: typescript,
-          level: 95,
-        },
-        {
-          name: "React",
-          icon: react,
-          level: 95,
+          level: 90,
         },
         {
           name: "MUI",
           icon: mui,
           level: 95,
+        },
+        {
+          name: "JavaScript",
+          icon: js,
+          level: 90,
+        },
+        {
+          name: "TypeScript",
+          icon: typescript,
+          level: 90,
+        },
+        {
+          name: "React",
+          icon: react,
+          level: 90,
+        },
+        {
+          name: "Next",
+          icon: next,
+          level: 90,
         },
       ],
     },
@@ -59,7 +65,7 @@ const SkillSection = () => {
         {
           name: "Redux Toolkit",
           icon: redux,
-          level: 95,
+          level: 90,
         },
       ],
     },
@@ -69,17 +75,17 @@ const SkillSection = () => {
         {
           name: "Webpack",
           icon: webpack,
-          level: 95,
+          level: 80,
         },
         {
           name: "Npm",
           icon: npm,
-          level: 95,
+          level: 80,
         },
         {
           name: "Yarn",
           icon: yarn,
-          level: 95,
+          level: 80,
         },
       ],
     },
@@ -109,12 +115,12 @@ const SkillSection = () => {
         {
           name: "Claude",
           icon: claude,
-          level: 95,
+          level: 80,
         },
         {
           name: "Cursor",
           icon: cursor,
-          level: 95,
+          level: 80,
         },
       ],
     },
@@ -175,26 +181,26 @@ const SkillSection = () => {
                 </h3>
 
                 {/* Progress Bar */}
-                <div className="w-full bg-white/10 rounded-full h-1.5 mt-3 overflow-hidden">
+                {/* <div className="w-full bg-white/10 rounded-full h-1.5 mt-3 overflow-hidden">
                   <div
                     className="bg-green-500 h-full rounded-full transition-all duration-500"
                     style={{ width: `${skill.level}%` }}
                   />
-                </div>
+                </div> */}
 
                 {/* Level % */}
-                <p className="text-xs text-gray-400 text-center mt-1">
+                {/* <p className="text-xs text-gray-400 text-center mt-1">
                   {skill.level}%
-                </p>
+                </p> */}
 
                 {/* Stars */}
-                <div className="flex justify-center mt-2">
+                {/* <div className="flex justify-center mt-2">
                   {[...Array(5)].map((_, index) => (
                     <span key={index} className="text-xs">
                       {index < Math.round(skill.level / 20) ? "⭐" : "☆"}
                     </span>
                   ))}
-                </div>
+                </div> */}
               </motion.div>
             ))}
           </motion.div>

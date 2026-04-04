@@ -43,7 +43,7 @@ export const navItems = [
   { id: 1, title: "Services", href: "#services" },
   { id: 2, title: "Why Hire me", href: "#whyme" },
   { id: 3, title: "Projects", href: "#projects" },
-  { id: 1, title: "Testimonials", href: "#testimonials" },
+  // { id: 1, title: "Testimonials", href: "#testimonials" },
   { id: 1, title: "Contact Me", href: "#contact" },
 ];
 
@@ -67,7 +67,7 @@ export const nameText = " Hi, I'm";
 export const personName = "Logeshwaran.";
 
 export const description =
-  "Frontend Software Developer with 3.6+ years of experience building scalable, user-centric web applications using React.js. Skilled in JavaScript, TypeScript, and REST APIs, with a strong focus on performance, reusable components, and clean, maintainable code.";
+  "Frontend Software Developer with 3.6+ years of experience designing and delivering scalable, high-performance, and user-centric web applications using React.js. Proficient in JavaScript and TypeScript, with strong expertise in building and integrating RESTful APIs. Adept at creating reusable, modular components and optimizing application performance, while maintaining clean, well-structured, and maintainable code following best practices.";
 export const AboutMe1 =
   "Frontend Software Developer with 3.6+ years of professional experience in building scalable, responsive web applications, specializing in React.js. hands-on frontend development experience using React, JavaScript (ES6+), TypeScript, HTML5, CSS3, and Material UI.".split(
     "",

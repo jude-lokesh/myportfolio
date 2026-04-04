@@ -42,7 +42,7 @@ const ExperienceSection = () => {
             )}
 
             {/* Header */}
-            <div className="flex items-center gap-4">
+            <div className="flex items-center gap-4 mt-2">
               <div
                 className={`w-12 h-12 flex items-center justify-center rounded-full text-lg font-bold
             ${current ? "bg-green-500 text-black" : "bg-gray-700 text-white"}`}

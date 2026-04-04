@@ -1,6 +1,7 @@
 import { lazy, Suspense } from "react";
 import LoadingSpinner from "./components/LoadingSpinner";
 import ThreeBackground from "./components/ThreeBackground";
+import CustomCursor from "./components/CustomeCursor";
 // import NumberSection from "./components/NumberSection";
 
 const NavBar = lazy(() => import("./components/NavBar"));
@@ -18,6 +19,7 @@ const ContactMe = lazy(() => import("./components/ContactMe"));
 function App() {
   return (
     <div className="bg-black min-h-screen">
+      <CustomCursor />
       <ThreeBackground />
       <div className="relative z-10">
         <Suspense

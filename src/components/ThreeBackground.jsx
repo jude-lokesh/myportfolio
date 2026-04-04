@@ -8,70 +8,86 @@ const ThreeBackground = () => {
     const container = containerRef.current;
     if (!container) return;
 
+    // Ensure container has size
+    const width = container.clientWidth || window.innerWidth;
+    const height = container.clientHeight || window.innerHeight;
+
     const scene = new THREE.Scene();
-    const camara = new THREE.PerspectiveCamera(
-      75,
-      container.clientWidth / container.clientHeight,
-      0.1,
-      1000,
-    );
+    scene.background = new THREE.Color(0x000000); // prevent flicker
+
+    const camera = new THREE.PerspectiveCamera(75, width / height, 0.1, 2000);
+    camera.position.z = 500;
 
     const renderer = new THREE.WebGLRenderer({ antialias: true });
-    renderer.setSize(container.clientWidth, container.clientHeight);
-    renderer.setPixelRatio(window.devicePixelRatio);
+    renderer.setSize(width, height);
+
+    // Limit pixel ratio (IMPORTANT FIX)
+    renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+
     container.appendChild(renderer.domElement);
 
-    const startGeometry = new THREE.BufferGeometry();
+    // Stars
+    const starGeometry = new THREE.BufferGeometry();
     const vertices = [];
 
     for (let i = 0; i < 10000; i++) {
-      const x = (Math.random() - 0.5) * 1000;
-      const y = (Math.random() - 0.5) * 1000;
-      const z = -Math.random() * 1000;
+      const x = (Math.random() - 0.5) * 2000;
+      const y = (Math.random() - 0.5) * 2000;
+      const z = (Math.random() - 0.5) * 2000;
 
       vertices.push(x, y, z);
     }
 
-    startGeometry.setAttribute(
+    starGeometry.setAttribute(
       "position",
       new THREE.Float32BufferAttribute(vertices, 3),
     );
 
     const starMaterial = new THREE.PointsMaterial({
       color: 0xffffff,
-      size: 1,
+      size: 1.5,
       transparent: true,
       opacity: 0.8,
     });
 
-    const stars = new THREE.Points(startGeometry, starMaterial);
+    const stars = new THREE.Points(starGeometry, starMaterial);
     scene.add(stars);
-    camara.position.z = 1;
 
-    const animationLoop = () => {
-      stars.rotation.x += 0.0002;
-      stars.rotation.y += 0.0002;
-      renderer.render(scene, camara);
-      requestAnimationFrame(animationLoop);
-    };
-    animationLoop();
+    let animationId;
 
-    const onWindowResize = () => {
-      camara.aspect = container.clientWidth / container.clientHeight;
-      camara.updateProjectionMatrix();
-      renderer.setSize(container.clientWidth, container.clientHeight);
+    const animate = () => {
+      stars.rotation.x += 0.0003;
+      stars.rotation.y += 0.0003;
+
+      renderer.render(scene, camera);
+      animationId = requestAnimationFrame(animate);
     };
-    window.addEventListener("resize", onWindowResize);
+
+    animate();
+
+    const onResize = () => {
+      const width = container.clientWidth || window.innerWidth;
+      const height = container.clientHeight || window.innerHeight;
+
+      camera.aspect = width / height;
+      camera.updateProjectionMatrix();
+      renderer.setSize(width, height);
+    };
+
+    window.addEventListener("resize", onResize);
 
     return () => {
-      window.removeEventListener("resize", onWindowResize);
+      cancelAnimationFrame(animationId);
+      window.removeEventListener("resize", onResize);
+
       container.removeChild(renderer.domElement);
-      startGeometry.dispose();
+
+      starGeometry.dispose();
       starMaterial.dispose();
-      stars.geometry.dispose();
-      stars.material.dispose();
+      renderer.dispose();
     };
   }, []);
+
   return (
     <div
       ref={containerRef}

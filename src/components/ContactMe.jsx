@@ -7,14 +7,16 @@ const contactInfo = [
     id: 1,
     label: "Email",
     value: "logeshwarankvm@gmail.com",
-    link: "mailto:yourmail@gmail.com",
+    link: "mailto:logeshwarankvm@gmail.com",
+    type: "internal",
     icon: <MdEmail />,
   },
   {
     id: 2,
     label: "Phone",
     value: "+91 9500351513",
-    link: "tel:+919876543210",
+    link: "tel:+919500351513", // ✅ fixed
+    type: "internal",
     icon: <FaPhoneAlt />,
   },
   {
@@ -22,6 +24,7 @@ const contactInfo = [
     label: "LinkedIn",
     value: "linkedin.com/in/logeshwaranvm",
     link: "https://www.linkedin.com/in/logeshwaranvm",
+    type: "external",
     icon: <FaLinkedin />,
   },
   {
@@ -29,24 +32,10 @@ const contactInfo = [
     label: "GitHub",
     value: "github.com/jude-lokesh",
     link: "https://github.com/jude-lokesh",
+    type: "external",
     icon: <FaGithub />,
   },
 ];
-
-const container = {
-  hidden: { opacity: 0 },
-  show: {
-    opacity: 1,
-    transition: {
-      staggerChildren: 0.2,
-    },
-  },
-};
-
-const item = {
-  hidden: { opacity: 0, y: 40 },
-  show: { opacity: 1, y: 0 },
-};
 
 const ContactMe = () => {
   return (
@@ -65,46 +54,40 @@ const ContactMe = () => {
       </motion.h2>
 
       {/* Cards */}
-      <motion.div
-        variants={container}
-        initial="hidden"
-        whileInView="show"
-        viewport={{ once: true }}
-        className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6"
-      >
-        {contactInfo.map((item) => (
-          <motion.a
-            key={item.id}
-            variants={item}
-            href={item.link}
-            target={
-              item.label === "Email" || item.label === "Phone"
-                ? "_self"
-                : "_blank"
-            }
-            rel="noopener noreferrer"
-            className="group p-6 rounded-2xl border border-white/20 
-                       bg-white/5 backdrop-blur-md
-                       transition-all duration-300
-                       hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(34,197,94,0.5)]"
-          >
-            {/* Icon */}
-            <div className="text-3xl text-green-400 mb-3 transition-transform duration-300 group-hover:scale-125">
-              {item.icon}
-            </div>
+      <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {contactInfo.map((item) => {
+          return (
+            <a
+              key={item.id}
+              href={item.link}
+              target="_blank"
+              aria-label={item.label}
+              rel="noopener noreferrer"
+              //           className="group relative p-6 rounded-2xl border border-white/20
+              // bg-white/5 backdrop-blur-md
+              // transition-all duration-300
+              // hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(34,197,94,0.5)]
+              // cursor-pointer"
+            >
+              <div className="text-3xl text-green-400 mb-3 transition-transform duration-300 group-hover:scale-125">
+                {item.icon}
+              </div>
 
-            {/* Label */}
-            <h3 className="text-white font-semibold text-lg">
-              {item.label}
-            </h3>
+              <h3 className="text-white font-semibold text-lg flex items-center gap-2">
+                {item.label}
 
-            {/* Value */}
-            <p className="text-gray-400 text-sm mt-1 break-words">
-              {item.value}
-            </p>
-          </motion.a>
-        ))}
-      </motion.div>
+                {item.type === "external" && (
+                  <span className="text-xs text-green-400">↗</span>
+                )}
+              </h3>
+
+              <p className="text-gray-400 text-sm mt-1 break-words">
+                {item.value}
+              </p>
+            </a>
+          );
+        })}
+      </div>
 
       {/* CTA Button */}
       <motion.div
@@ -114,7 +97,10 @@ const ContactMe = () => {
         className="text-center mt-10"
       >
         <a
-          href="mailto:yourmail@gmail.com"
+          href="https://www.linkedin.com/in/logeshwaranvm"
+          target={"_blank"}
+          rel="noopener noreferrer"
+          aria-label={"linkedin"}
           className="inline-block px-6 py-3 bg-green-500 text-black rounded-full font-medium
                      transition hover:scale-110 hover:shadow-lg"
         >
