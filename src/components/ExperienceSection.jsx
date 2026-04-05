@@ -56,13 +56,13 @@ const ExperienceSection = () => {
             >
               {/* Present Badge */}
               {current && (
-                <span className="absolute top-4 right-4 text-xs px-3 py-1 rounded-full bg-green-500 text-black font-semibold">
+                <span className="absolute top-2 right-4 text-xs px-3 py-1 rounded-full bg-green-500 text-black font-semibold">
                   Present
                 </span>
               )}
 
               {/* Header */}
-              <h3 className="text-lg md:text-xl font-semibold text-white">
+              <h3 className="text-lg md:text-xl mt-2 font-semibold text-white">
                 {post}
               </h3>
 

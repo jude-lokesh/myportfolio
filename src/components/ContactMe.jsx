@@ -15,7 +15,7 @@ const contactInfo = [
     id: 2,
     label: "Phone",
     value: "+91 9500351513",
-    link: "tel:+919500351513", // ✅ fixed
+    link: "tel:+919500351513",
     type: "internal",
     icon: <FaPhoneAlt />,
   },
@@ -56,18 +56,24 @@ const ContactMe = () => {
       {/* Cards */}
       <div className="mt-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
         {contactInfo.map((item) => {
+          const isExternal = item.type === "external";
+
           return (
             <a
               key={item.id}
+              onClick={() => {
+                alert("11111");
+                window.open(item.link, isExternal ? "_blank" : "_self");
+              }}
               href={item.link}
-              target="_blank"
+              target={isExternal ? "_blank" : "_self"}
+              rel={isExternal ? "noopener noreferrer" : undefined}
               aria-label={item.label}
-              rel="noopener noreferrer"
-              //           className="group relative p-6 rounded-2xl border border-white/20
-              // bg-white/5 backdrop-blur-md
-              // transition-all duration-300
-              // hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(34,197,94,0.5)]
-              // cursor-pointer"
+              className="group relative p-6 rounded-2xl border border-white/20
+      bg-white/5 backdrop-blur-md
+      transition-all duration-300
+      hover:-translate-y-2 hover:shadow-[0_0_20px_rgba(34,197,94,0.5)]
+      cursor-pointer"
             >
               <div className="text-3xl text-green-400 mb-3 transition-transform duration-300 group-hover:scale-125">
                 {item.icon}
@@ -75,8 +81,7 @@ const ContactMe = () => {
 
               <h3 className="text-white font-semibold text-lg flex items-center gap-2">
                 {item.label}
-
-                {item.type === "external" && (
+                {isExternal && (
                   <span className="text-xs text-green-400">↗</span>
                 )}
               </h3>
