@@ -61,10 +61,6 @@ const ContactMe = () => {
           return (
             <a
               key={item.id}
-              onClick={() => {
-                alert("11111");
-                window.open(item.link, isExternal ? "_blank" : "_self");
-              }}
               href={item.link}
               target={isExternal ? "_blank" : "_self"}
               rel={isExternal ? "noopener noreferrer" : undefined}

@@ -67,9 +67,9 @@ export const nameText = " Hi, I'm";
 export const personName = "Logeshwaran.";
 
 export const description =
-  "Frontend Software Developer with 3.6+ years of experience designing and delivering scalable, high-performance, and user-centric web applications using React.js. Proficient in JavaScript and TypeScript, with strong expertise in building and integrating RESTful APIs. Adept at creating reusable, modular components and optimizing application performance, while maintaining clean, well-structured, and maintainable code following best practices.";
+  "Frontend Software Developer with 3+ years of experience designing and delivering scalable, high-performance, and user-centric web applications using React.js. Proficient in JavaScript and TypeScript, with strong expertise in building and integrating RESTful APIs. Adept at creating reusable, modular components and optimizing application performance, while maintaining clean, well-structured, and maintainable code following best practices.";
 export const AboutMe1 =
-  "Frontend Software Developer with 3.6+ years of professional experience in building scalable, responsive web applications, specializing in React.js. hands-on frontend development experience using React, JavaScript (ES6+), TypeScript, HTML5, CSS3, and Material UI.".split(
+  "Frontend Software Developer with 3+ years of professional experience in building scalable, responsive web applications, specializing in React.js. hands-on frontend development experience using React, JavaScript (ES6+), TypeScript, HTML5, CSS3, and Material UI.".split(
     "",
   );
 export const AboutMe2 =

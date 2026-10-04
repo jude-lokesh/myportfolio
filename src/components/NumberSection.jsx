@@ -5,7 +5,7 @@ import { motion } from "framer-motion";
 
 const NumberSection = () => {
   const numbers = [
-    { id: 1, value: 3.6, title: "Years", title2: "Experience" },
+    { id: 1, value: 3, title: "Years", title2: "Experience" },
     { id: 2, value: 3, title: "Projects", title2: "Worked On" },
   ];
 

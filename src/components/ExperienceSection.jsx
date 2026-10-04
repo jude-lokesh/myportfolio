@@ -7,13 +7,6 @@ const experiences = [
     company: "Compunet Connections, Chennai",
     current: true,
   },
-  {
-    id: 2,
-    duration: "Oct 2022 – Sep 2023",
-    company: "Genesys Academy of Computer Science, Puducherry",
-    post: "Trainee Developer",
-    current: false,
-  },
 ];
 
 const ExperienceSection = () => {
@@ -22,7 +15,7 @@ const ExperienceSection = () => {
       {/* 🔥 Top Experience Summary */}
       <div className="mb-12 text-center">
         <h4 className="text-3xl md:text-4xl font-bold text-white">
-          3.6+ Years of Experience
+          3+ Years of Experience
         </h4>
         <p className="text-gray-400 mt-2">
           Building scalable and user-focused web applications

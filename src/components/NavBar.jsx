@@ -22,7 +22,7 @@ const Path = (props) => (
 const MenuToggle = ({ toggle }) => (
   <button
     onClick={toggle}
-    className="absolute top-5 left-5 z-20 w-[40px] h-[40px] bg-transparent flex items-center justify-center"
+    className="absolute top-5 left-5 z-20 w-[40px] h-[40px] bg-transparent flex items-center justify-center pointer-events-auto"
   >
     <svg width={23} height={23} viewBox="0 0 23 23">
       <Path
@@ -83,7 +83,7 @@ const NavBar = () => {
 
   return (
     <motion.nav
-      className="fixed top-0 left-0 w-full h-full"
+      className="fixed top-0 left-0 w-full h-full pointer-events-none"
       initial={false}
       animate={isOpen ? "open" : "closed"}
       custom={height}
@@ -91,7 +91,9 @@ const NavBar = () => {
       style={{ zIndex }}
     >
       <motion.div
-        className="absolute top-0 left-0 w-64 h-full backdrop-blur-sm bg-white/30"
+        className={`absolute top-0 left-0 w-64 h-full backdrop-blur-sm bg-white/30 ${
+          isOpen ? "pointer-events-auto" : "pointer-events-none"
+        }`}
         variants={sidebarVarients}
       >
         <motion.ul className="p-8 mt-20" variants={navVarients}>
